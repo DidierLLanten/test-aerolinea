@@ -1,10 +1,9 @@
+using BLL.Services;
+using BLL.Services.Interfaces;
+using DAL.Context;
 using Microsoft.EntityFrameworkCore;
-using WebApiAerolinea.Context;
-using WebApiAerolinea.Mapper;
 using WebApiAerolinea.Repositories;
 using WebApiAerolinea.Repositories.Interfaces;
-using WebApiAerolinea.Services;
-using WebApiAerolinea.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiAerolinea", "WebApiAerolinea\WebApiAerolinea.csproj", "{2A2FB860-2532-485C-A2E2-1A6C4940EAA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiAerolinea", "WebApiAerolinea\WebApiAerolinea.csproj", "{2A2FB860-2532-485C-A2E2-1A6C4940EAA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{8D445F32-DD96-41D3-AAC8-2914D74A1652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{74B10277-7BF5-4DF5-ACA3-BE0FB486A9DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2A2FB860-2532-485C-A2E2-1A6C4940EAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A2FB860-2532-485C-A2E2-1A6C4940EAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A2FB860-2532-485C-A2E2-1A6C4940EAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D445F32-DD96-41D3-AAC8-2914D74A1652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D445F32-DD96-41D3-AAC8-2914D74A1652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D445F32-DD96-41D3-AAC8-2914D74A1652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D445F32-DD96-41D3-AAC8-2914D74A1652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B10277-7BF5-4DF5-ACA3-BE0FB486A9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B10277-7BF5-4DF5-ACA3-BE0FB486A9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B10277-7BF5-4DF5-ACA3-BE0FB486A9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B10277-7BF5-4DF5-ACA3-BE0FB486A9DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

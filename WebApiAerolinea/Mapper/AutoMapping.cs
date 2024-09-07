@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using DAL.Entities;
 using WebApiAerolinea.DTOs;
-using WebApiAerolinea.Entities;
 
 namespace WebApiAerolinea.Mapper
 {

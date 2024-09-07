@@ -1254,6 +1254,33 @@
             "rid": "win"
           }
         }
+      },
+      "BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BLL.dll": {}
+        }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
+        }
       }
     }
   },
@@ -3930,11 +3957,23 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "BLL/1.0.0": {
+      "type": "project",
+      "path": "../BLL/BLL.csproj",
+      "msbuildProject": "../BLL/BLL.csproj"
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoMapper >= 13.0.1",
+      "BLL >= 1.0.0",
+      "DAL >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.5",
       "Microsoft.EntityFrameworkCore >= 7.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.0",
@@ -3969,7 +4008,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Didie\\Desktop\\.NetTraining\\WebApiAerolinea\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\Didie\\Desktop\\.NetTraining\\WebApiAerolinea\\BLL\\BLL.csproj"
+            },
+            "C:\\Users\\Didie\\Desktop\\.NetTraining\\WebApiAerolinea\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\Didie\\Desktop\\.NetTraining\\WebApiAerolinea\\DAL\\DAL.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

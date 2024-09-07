@@ -1,0 +1,15 @@
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\bin\Debug\net7.0\DAL.deps.json
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\bin\Debug\net7.0\DAL.runtimeconfig.json
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\bin\Debug\net7.0\DAL.dll
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\bin\Debug\net7.0\DAL.pdb
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.csproj.AssemblyReference.cache
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.AssemblyInfo.cs
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.sourcelink.json
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.dll
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\refint\DAL.dll
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.pdb
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\DAL.genruntimeconfig.cache
+C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\DAL\obj\Debug\net7.0\ref\DAL.dll

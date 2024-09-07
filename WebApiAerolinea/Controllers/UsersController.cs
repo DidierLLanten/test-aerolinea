@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApiAerolinea.DTOs;
-using WebApiAerolinea.Entities;
-using WebApiAerolinea.Services.Interfaces;
 using AutoMapper;
+using DAL.Entities;
+using BLL.Services.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -42,6 +42,10 @@ namespace WebApiAerolinea.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserDto createUserDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var user = _mapper.Map<User>(createUserDto);
             var createdUser = await _userService.CreateAsync(user);
             return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);

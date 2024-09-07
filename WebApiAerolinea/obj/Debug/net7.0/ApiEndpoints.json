@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApiAerolinea.Entities.User, WebApiAerolinea, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DAL.Entities.User, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -51,7 +51,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApiAerolinea.Entities.User",
+        "Type": "DAL.Entities.User",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -76,7 +76,7 @@
       },
       {
         "Name": "user",
-        "Type": "WebApiAerolinea.Entities.User",
+        "Type": "DAL.Entities.User",
         "IsRequired": true
       }
     ],
