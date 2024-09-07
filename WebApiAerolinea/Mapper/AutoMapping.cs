@@ -9,6 +9,7 @@ namespace WebApiAerolinea.Mapper
         public AutoMapping()
         {
             CreateMap<User, CreateUserDto>().ReverseMap();
+            CreateMap<User, UpdateUserDto>().ReverseMap();
         }
     }
 }

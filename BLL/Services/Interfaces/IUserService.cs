@@ -4,8 +4,8 @@
 namespace BLL.Services.Interfaces
 {
     public interface IUserService : IGenericService<User>
-    {
-        Task<User?> GetByEmailAsync(string email);
+    {            
+        Task<IEnumerable<User>> GetByEmailFragmentAsync(string emailFragment);
     }
 
 }

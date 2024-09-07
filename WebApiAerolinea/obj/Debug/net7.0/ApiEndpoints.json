@@ -75,8 +75,8 @@
         "IsRequired": true
       },
       {
-        "Name": "user",
-        "Type": "DAL.Entities.User",
+        "Name": "updateUserDto",
+        "Type": "WebApiAerolinea.DTOs.UpdateUserDto",
         "IsRequired": true
       }
     ],
@@ -97,6 +97,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.UsersController",
+    "Method": "GetUserByEmailFragment",
+    "RelativePath": "api/Users/by-email",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "emailFragment",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DAL.Entities.User, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "WebApiAerolinea.Controllers.WeatherForecastController",

@@ -1,5 +1,6 @@
 ﻿using BLL.Services.Interfaces;
 using DAL.Entities;
+using Microsoft.EntityFrameworkCore;
 using WebApiAerolinea.Repositories.Interfaces;
 
 namespace BLL.Services
@@ -13,9 +14,9 @@ namespace BLL.Services
             _userRepository = userRepository;
         }
 
-        public async Task<User?> GetByEmailAsync(string email)
+        public async Task<IEnumerable<User>> GetByEmailFragmentAsync(string emailFragment)
         {
-            return await _userRepository.GetByEmailAsync(email);
+            return await _userRepository.GetByEmailFragmentAsync(emailFragment);
         }
     }
 

@@ -11,9 +11,11 @@ namespace WebApiAerolinea.Repositories
         {
         }
 
-        public async Task<User?> GetByEmailAsync(string email)
-        {
-            return await _context.Set<User>().FirstOrDefaultAsync(u => u.Email == email);
+        public async Task<IEnumerable<User>> GetByEmailFragmentAsync(string emailFragment)
+        {            
+            return await _context.Set<User>()
+               .Where(u => u.Email.Contains(emailFragment))
+               .ToListAsync();
         }
     }
 }

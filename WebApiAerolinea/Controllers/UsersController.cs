@@ -4,8 +4,6 @@ using AutoMapper;
 using DAL.Entities;
 using BLL.Services.Interfaces;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace WebApiAerolinea.Controllers
 {
     [Route("api/[controller]")]
@@ -48,18 +46,23 @@ namespace WebApiAerolinea.Controllers
             }
             var user = _mapper.Map<User>(createUserDto);
             var createdUser = await _userService.CreateAsync(user);
-            return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
+            //return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
+            return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, new { message = "User created successfully", user = createdUser });
+
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserDto updateUserDto)
         {
-            if (id != user.Id)
+            var user = await _userService.GetByIdAsync(id);
+            if (user == null)
             {
-                return BadRequest();
+                return NotFound();
             }
-            await _userService.UpdateAsync(user);
-            return NoContent();
+
+            var userActualizado = _mapper.Map(updateUserDto, user);
+            await _userService.UpdateAsync(userActualizado);
+            return Ok(new { message = $"User {id} updated successfully" });
         }
 
         [HttpDelete("{id}")]
@@ -68,5 +71,17 @@ namespace WebApiAerolinea.Controllers
             await _userService.DeleteAsync(id);
             return NoContent();
         }
+
+        [HttpGet("by-email")]
+        public async Task<ActionResult<IEnumerable<User>>> GetUserByEmailFragment([FromQuery] string email)
+        {
+            var users = await _userService.GetByEmailFragmentAsync(email);
+            if (users == null)
+            {
+                return NotFound();
+            }
+            return Ok(users);
+        }
+
     }
 }
