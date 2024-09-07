@@ -9,6 +9,15 @@ namespace DAL.Context
         {
         }
 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{            
+        //    modelBuilder.Entity<Seat>()
+        //        .Property(s => s.IsAvailable)
+        //        .HasDefaultValue(true);
+
+        //    base.OnModelCreating(modelBuilder);
+        //}
+
         public DbSet<User> Users { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Seat> Seats { get; set; }

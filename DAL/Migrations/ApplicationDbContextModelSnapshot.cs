@@ -64,7 +64,7 @@ namespace DAL.Migrations
                     b.HasIndex("FlightNumber")
                         .IsUnique();
 
-                    b.ToTable("Flights");
+                    b.ToTable("Flights", (string)null);
                 });
 
             modelBuilder.Entity("WebApiAerolinea.Entities.Reservation", b =>
@@ -93,7 +93,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("WebApiAerolinea.Entities.Seat", b =>
@@ -126,7 +126,7 @@ namespace DAL.Migrations
                     b.HasIndex("SeatNumber", "FlightId")
                         .IsUnique();
 
-                    b.ToTable("Seats");
+                    b.ToTable("Seats", (string)null);
                 });
 
             modelBuilder.Entity("WebApiAerolinea.Entities.User", b =>
@@ -162,7 +162,7 @@ namespace DAL.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("WebApiAerolinea.Entities.Reservation", b =>

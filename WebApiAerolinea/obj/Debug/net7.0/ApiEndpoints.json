@@ -1,8 +1,221 @@
 [
   {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "GetAllSeats",
+    "RelativePath": "api/v1/Seats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DAL.Entities.Seat, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "CreateSeat",
+    "RelativePath": "api/v1/Seats",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createSeatDto",
+        "Type": "WebApiAerolinea.DTOs.CreateSeatDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "GetSeatById",
+    "RelativePath": "api/v1/Seats/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DAL.Entities.Seat",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "UpdateSeat",
+    "RelativePath": "api/v1/Seats/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateSeatDto",
+        "Type": "WebApiAerolinea.DTOs.UpdateSeatDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "DeleteSeat",
+    "RelativePath": "api/v1/Seats/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "GetSeatsAvailables",
+    "RelativePath": "api/v1/Seats/by-available",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "available",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DAL.Entities.Seat, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "GetSeatByEmailFragment",
+    "RelativePath": "api/v1/Seats/by-flight-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DAL.Entities.Seat, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "GetSeatsByFlightAndAvailables",
+    "RelativePath": "api/v1/Seats/flight",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "flightId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "available",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[DAL.Entities.Seat, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApiAerolinea.Controllers.SeatsController",
+    "Method": "GetByFlightIdAndSeatNumber",
+    "RelativePath": "api/v1/Seats/flight-seat-number",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FlightId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "seatNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "DAL.Entities.Seat",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "WebApiAerolinea.Controllers.UsersController",
     "Method": "GetAllUsers",
-    "RelativePath": "api/Users",
+    "RelativePath": "api/v1/Users",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -22,7 +235,7 @@
   {
     "ContainingType": "WebApiAerolinea.Controllers.UsersController",
     "Method": "CreateUser",
-    "RelativePath": "api/Users",
+    "RelativePath": "api/v1/Users",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -38,7 +251,7 @@
   {
     "ContainingType": "WebApiAerolinea.Controllers.UsersController",
     "Method": "GetUserById",
-    "RelativePath": "api/Users/{id}",
+    "RelativePath": "api/v1/Users/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -64,7 +277,7 @@
   {
     "ContainingType": "WebApiAerolinea.Controllers.UsersController",
     "Method": "UpdateUser",
-    "RelativePath": "api/Users/{id}",
+    "RelativePath": "api/v1/Users/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -85,7 +298,7 @@
   {
     "ContainingType": "WebApiAerolinea.Controllers.UsersController",
     "Method": "DeleteUser",
-    "RelativePath": "api/Users/{id}",
+    "RelativePath": "api/v1/Users/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -101,13 +314,13 @@
   {
     "ContainingType": "WebApiAerolinea.Controllers.UsersController",
     "Method": "GetUserByEmailFragment",
-    "RelativePath": "api/Users/by-email",
+    "RelativePath": "api/v1/Users/by-email",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "emailFragment",
+        "Name": "email",
         "Type": "System.String",
         "IsRequired": false
       }

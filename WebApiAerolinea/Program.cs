@@ -1,6 +1,8 @@
 using BLL.Services;
 using BLL.Services.Interfaces;
 using DAL.Context;
+using DAL.Repositories;
+using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using WebApiAerolinea.Repositories;
 using WebApiAerolinea.Repositories.Interfaces;
@@ -24,10 +26,12 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //Escan
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 
 
 builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ISeatService, SeatService>();
 
 var app = builder.Build();
 

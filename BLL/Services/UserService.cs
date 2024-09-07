@@ -1,7 +1,6 @@
 ﻿using BLL.Services.Interfaces;
 using DAL.Entities;
-using Microsoft.EntityFrameworkCore;
-using WebApiAerolinea.Repositories.Interfaces;
+using DAL.Repositories.Interfaces;
 
 namespace BLL.Services
 {

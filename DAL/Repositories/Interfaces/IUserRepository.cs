@@ -1,6 +1,7 @@
 ﻿using DAL.Entities;
+using WebApiAerolinea.Repositories.Interfaces;
 
-namespace WebApiAerolinea.Repositories.Interfaces
+namespace DAL.Repositories.Interfaces
 {
     public interface IUserRepository : IRepository<User>
     {
