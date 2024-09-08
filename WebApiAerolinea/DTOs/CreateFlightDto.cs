@@ -1,14 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace DAL.Entities
+namespace WebApiAerolinea.DTOs
 {
-    [Index(nameof(FlightNumber), IsUnique = true)]
-    public class Flight
+    public class CreateFlightDto
     {
-        // Constructor que inicializa AvailableSeats con TotalSeats
-        public int Id { get; set; }
         public required string Airline { get; set; }
+        [StringLength(6, MinimumLength = 6, ErrorMessage = "El número de vuelo debe tener exactamente 6 caracteres.")]
         public required string FlightNumber { get; set; }
         public string? Origin { get; set; }
         public string? Destination { get; set; }
@@ -18,7 +15,5 @@ namespace DAL.Entities
         public double Price { get; set; }
         [Range(10, 100)]
         public int TotalSeats { get; set; }
-        [Range(0, 100)]
-        public int AvailableSeats { get; set; }
     }
 }

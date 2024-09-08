@@ -39,14 +39,9 @@ namespace WebApiAerolinea.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateSeat([FromBody] CreateSeatDto createSeatDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        {            
             var seat = _mapper.Map<Seat>(createSeatDto);
-            var createdSeat = await _seatService.CreateAsync(seat);
-            //return CreatedAtAction(nameof(GetSeatById), new { id = createdSeat.Id }, createdSeat);
+            var createdSeat = await _seatService.CreateAsync(seat);         
             return CreatedAtAction(nameof(GetSeatById), new { id = createdSeat.Id }, new { message = "Seat created successfully", seat = createdSeat });
 
         }

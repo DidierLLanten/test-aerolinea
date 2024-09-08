@@ -1,34 +1,24 @@
 ﻿using DAL.Context;
 using DAL.Entities;
+using DAL.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using WebApiAerolinea.Repositories;
 
 namespace DAL.Repositories
 {
-    public class FlightRepository
+    public class FlightRepository : Repository<Flight>, IFlightRepository
     {
-        private readonly ApplicationDbContext _context;
 
-        public FlightRepository(ApplicationDbContext context) { _context = context; }
+        public FlightRepository(ApplicationDbContext context) : base(context) { }
 
-        public IEnumerable<Flight> GetAll()
+        public async Task<Flight?> GetByFlightNumberAsync(string flightNumber)
         {
-            return _context.Flights.ToList();
+            return await _context.Set<Flight>().FirstOrDefaultAsync(f => f.FlightNumber == flightNumber);
         }
 
-        public Flight? GetById(int id)
+        public async Task<IEnumerable<Flight>> GetByFlightAirlineAsync(string airLine)
         {
-            return _context.Flights.FirstOrDefault(f => f.Id == id);
-        }
-
-        public async Task Post(Flight flight)
-        {
-            _context.Add(flight);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task Put(Flight flight)
-        {
-            _context.Add(flight);
-            await _context.SaveChangesAsync();
+            return await _context.Set<Flight>().Where(f => f.Airline == airLine).ToListAsync();
         }
 
     }

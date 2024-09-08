@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
 
 namespace DAL.Entities
 {
@@ -11,8 +10,8 @@ namespace DAL.Entities
         public bool IsAvailable { get; set; } = true;
 
         // Relaciones
-        public int FlightId { get; set; }
-        public required Flight Flight { get; set; }
+        public required int FlightId { get; set; }
+        public Flight Flight { get; set; }
 
         public int? ReservationId { get; set; }
         public Reservation? Reservation { get; set; }

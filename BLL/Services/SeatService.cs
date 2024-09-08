@@ -32,5 +32,27 @@ namespace BLL.Services
         {
             return await _repository.GetByFlightIdAndAvailableAsync(flightId, available);
         }
+
+        public async Task<IEnumerable<Seat>> CreateSeatsAsync(int flightId, int numberOfSeats)
+        {
+            char fila = 'A';
+            var seats = new List<Seat>();
+
+            for (int i = 1; i <= numberOfSeats; i++)
+            {
+
+                if (i != 1 && (i % 4) == 1) { fila++; }
+                Seat seat = new()
+                {
+                    FlightId = flightId, // Asignar el Id del vuelo                    
+                    SeatNumber = $"{i}{fila}", // Aquí puedes generar el número del asiento dinámicamente
+                };
+
+                await _repository.AddAsync(seat);
+                seats.Add(seat); // Agregar el asiento a la lista
+            }
+
+            return seats;
+        }
     }
 }

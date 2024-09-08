@@ -40,13 +40,8 @@ namespace WebApiAerolinea.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserDto createUserDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
             var user = _mapper.Map<User>(createUserDto);
-            var createdUser = await _userService.CreateAsync(user);
-            //return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
+            var createdUser = await _userService.CreateAsync(user);            
             return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, new { message = "User created successfully", user = createdUser });
 
         }
