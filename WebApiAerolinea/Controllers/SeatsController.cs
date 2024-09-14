@@ -60,6 +60,19 @@ namespace WebApiAerolinea.Controllers
             return Ok(new { message = $"Seat {id} updated successfully" });
         }
 
+        [HttpPut("reserve/{id}")]
+        public async Task<IActionResult> MakeReservation(int id, [FromBody] ReserveSeatDto reserveSeatDto)
+        {
+            var seat = await _seatService.GetByIdAsync(id);
+            if (seat == null)
+            {
+                return NotFound();
+            }
+            var seatActualizado = _mapper.Map(reserveSeatDto, seat);
+            await _seatService.UpdateAsync(seatActualizado);
+            return Ok(new { message = $"Seat {id} reserved successfully" });
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSeat(int id)
         {

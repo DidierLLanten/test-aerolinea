@@ -13,6 +13,7 @@ namespace WebApiAerolinea.Mapper
 
             CreateMap<Seat, CreateSeatDto>().ReverseMap();
             CreateMap<Seat, UpdateSeatDto>().ReverseMap();
+            CreateMap<ReserveSeatDto, Seat>();
 
             CreateMap<Flight, CreateFlightDto>().ReverseMap();
             CreateMap<UpdateFlightDto, Flight>()
@@ -22,6 +23,9 @@ namespace WebApiAerolinea.Mapper
                 .ForMember(dest => dest.Destination, opt => opt.Condition(src => !string.IsNullOrEmpty(src.Destination)))
                 .ForMember(dest => dest.DepartureTime, opt => opt.Condition(src => src.DepartureTime.HasValue))
                 .ForMember(dest => dest.ArrivalTime, opt => opt.Condition(src => src.ArrivalTime.HasValue));
+
+            CreateMap<Reservation, CreateReservationDto>().ReverseMap();
+            CreateMap<Reservation, UpdateReservationDto>().ReverseMap();
         }
     }
 }

@@ -26,14 +26,16 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //Escan
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ISeatRepository, SeatRepository>();
 builder.Services.AddScoped<IFlightRepository, FlightRepository>();
+builder.Services.AddScoped<ISeatRepository, SeatRepository>();
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
 
 builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ISeatService, SeatService>();
 builder.Services.AddScoped<IFlightService, FlightService>();
+builder.Services.AddScoped<ISeatService, SeatService>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
 
 var app = builder.Build();
 

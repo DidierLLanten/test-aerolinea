@@ -3,7 +3,7 @@
     public class Reservation
     {
         public int Id { get; set; }
-        public DateTime ReservationDate { get; set; }
+        public DateTime ReservationDate { get; set; } = DateTime.Now;
         public int NumberOfPassengers { get; set; }
 
         // Relaciones
