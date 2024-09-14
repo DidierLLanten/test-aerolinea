@@ -2,7 +2,6 @@
 using DAL.Entities;
 using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using WebApiAerolinea.Repositories;
 
 namespace DAL.Repositories
 {

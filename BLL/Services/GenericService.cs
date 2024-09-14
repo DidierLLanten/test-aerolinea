@@ -1,5 +1,5 @@
-﻿using WebApiAerolinea.Repositories.Interfaces;
-using BLL.Services.Interfaces;
+﻿using BLL.Services.Interfaces;
+using DAL.Repositories.Interfaces;
 
 namespace BLL.Services
 {

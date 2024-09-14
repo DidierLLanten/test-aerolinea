@@ -4,8 +4,6 @@ using DAL.Context;
 using DAL.Repositories;
 using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using WebApiAerolinea.Repositories;
-using WebApiAerolinea.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

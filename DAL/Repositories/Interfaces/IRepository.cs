@@ -1,4 +1,4 @@
-﻿namespace WebApiAerolinea.Repositories.Interfaces
+﻿namespace DAL.Repositories.Interfaces
 {
     public interface IRepository<T> where T : class
     {

@@ -1,8 +1,8 @@
 ﻿using DAL.Context;
+using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using WebApiAerolinea.Repositories.Interfaces;
 
-namespace WebApiAerolinea.Repositories
+namespace DAL.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {

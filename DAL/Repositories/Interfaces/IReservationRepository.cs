@@ -1,5 +1,4 @@
 ﻿using DAL.Entities;
-using WebApiAerolinea.Repositories.Interfaces;
 
 namespace DAL.Repositories.Interfaces
 {
