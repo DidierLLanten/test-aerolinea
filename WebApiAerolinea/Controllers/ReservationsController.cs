@@ -40,9 +40,28 @@ namespace WebApiAerolinea.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateReservation([FromBody] CreateReservationDto createReservationDto)
         {
-            var reservation = _mapper.Map<Reservation>(createReservationDto);
-            var createdReservation = await _reservationService.CreateAsync(reservation);
-            return CreatedAtAction(nameof(GetReservationById), new { id = createdReservation.Id }, new { message = "Reservation created successfully", reservation = createdReservation });
+            try
+            {
+                var reservation = _mapper.Map<Reservation>(createReservationDto);
+                var createdReservation = await _reservationService.CreateAsync(reservation);
+
+                // Llamada al servicio para reservar asientos
+                await _reservationService.ReserveSeatAsync(createReservationDto.SeatsId, createdReservation.FlightId, createdReservation.Id);
+
+                var reservationDto = _mapper.Map<ReservationDto>(createdReservation);
+
+                return CreatedAtAction(nameof(GetReservationById), new { id = createdReservation.Id }, new { message = "Reservation created successfully", reservation = reservationDto });
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Manejo de excepciones específicas con una respuesta adecuada 
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                // Manejo de otras excepciones
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.InnerException?.Message ?? ex.Message});
+            }
         }
 
         [HttpPut("{id}")]

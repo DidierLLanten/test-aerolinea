@@ -54,5 +54,37 @@ namespace BLL.Services
 
             return seats;
         }
+
+        public async Task ReserveSeatAsync(List<int> seatsIds, int flightId, int reservationId)
+        {
+            foreach (int seatId in seatsIds)
+            {
+                Seat? seatFound = await _repository.GetByIdAsync(seatId);
+                if (seatFound != null)
+                {
+                    if (seatFound.FlightId == flightId)
+                    {
+                        if (seatFound.IsAvailable)
+                        {
+                            seatFound.ReservationId = reservationId;
+                            seatFound.IsAvailable = false;
+                            await _repository.UpdateAsync(seatFound);
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException($"Seat {seatFound.SeatNumber} unavailable to Flight ID {flightId}.");
+                        }
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException($"Seat with ID {seatId} does not belong to Flight ID {flightId}.");
+                    }
+                }
+                else
+                {
+                    throw new InvalidOperationException($"Seat with ID {seatId} not found."); 
+                }
+            }
+        }
     }
 }

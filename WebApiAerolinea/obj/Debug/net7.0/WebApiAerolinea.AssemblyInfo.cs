@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApiAerolinea")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99ccd7d50c316b0ad053031d9e355657bd4777cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00803279e25611647e2a23c1e9c8a712011ccb14")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApiAerolinea")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApiAerolinea")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

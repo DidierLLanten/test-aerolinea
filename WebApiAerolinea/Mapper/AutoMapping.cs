@@ -24,8 +24,12 @@ namespace WebApiAerolinea.Mapper
                 .ForMember(dest => dest.DepartureTime, opt => opt.Condition(src => src.DepartureTime.HasValue))
                 .ForMember(dest => dest.ArrivalTime, opt => opt.Condition(src => src.ArrivalTime.HasValue));
 
-            CreateMap<Reservation, CreateReservationDto>().ReverseMap();
+            
+            CreateMap<CreateReservationDto, Reservation>(); 
             CreateMap<Reservation, UpdateReservationDto>().ReverseMap();
+            CreateMap<Reservation, ReservationDto>(); //Paso  una reservation y recibo un reservationDto
+
+            CreateMap<Seat, SeatDto>();
         }
     }
 }
