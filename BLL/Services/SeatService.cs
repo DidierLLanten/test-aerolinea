@@ -36,22 +36,25 @@ namespace BLL.Services
         public async Task<IEnumerable<Seat>> CreateSeatsAsync(int flightId, int numberOfSeats)
         {
             char fila = 'A';
+            int filaNumber = 1;
             var seats = new List<Seat>();
 
             for (int i = 1; i <= numberOfSeats; i++)
             {
 
-                if (i != 1 && (i % 4) == 1) { fila++; }
+                if (i != 1 && (i % 4) == 1) { fila = 'A'; filaNumber++; }
                 Seat seat = new()
                 {
-                    FlightId = flightId, // Asignar el Id del vuelo                    
-                    SeatNumber = $"{i}{fila}", // Aquí puedes generar el número del asiento dinámicamente
+                    FlightId = flightId,                 
+                    SeatNumber = $"{filaNumber}{fila}",
                 };
+                fila++;
 
-                await _repository.AddAsync(seat);
-                seats.Add(seat); // Agregar el asiento a la lista
+                //await _repository.AddAsync(seat);
+                seats.Add(seat);
             }
 
+            await _repository.AddManyAsync(seats); //guardar todos los asientos al timpo en la bd                          
             return seats;
         }
 

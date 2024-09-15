@@ -8,5 +8,6 @@ namespace DAL.Repositories.Interfaces
         Task<IEnumerable<Seat>> GetAvailablesAsync(bool available);
         Task<IEnumerable<Seat>> GetByFlightIdAsync(int flightId);
         Task<IEnumerable<Seat>> GetByFlightIdAndAvailableAsync(int flightId, bool available);
+        Task AddManyAsync(List<Seat> seats);
     }
 }

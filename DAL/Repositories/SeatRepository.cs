@@ -30,5 +30,11 @@ namespace DAL.Repositories
         {
             return await _context.Set<Seat>().Where(s => s.FlightId == flightId && s.IsAvailable == available).ToListAsync();
         }
+
+        public async Task AddManyAsync(List<Seat> seats)
+        {
+            await _context.Set<Seat>().AddRangeAsync(seats);
+            await _context.SaveChangesAsync();
+        }
     }
 }
