@@ -12,11 +12,13 @@ namespace WebApiAerolinea.Controllers
     {
         private readonly IReservationService _reservationService;
         private readonly IMapper _mapper;
+        private readonly ILogger<ReservationsController> _logger;
 
-        public ReservationsController(IReservationService reservationService, IMapper mapper)
+        public ReservationsController(IReservationService reservationService, IMapper mapper, ILogger<ReservationsController> logger)
         {
             _reservationService = reservationService;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -55,6 +57,7 @@ namespace WebApiAerolinea.Controllers
             catch (InvalidOperationException ex)
             {
                 // Manejo de excepciones específicas con una respuesta adecuada 
+                _logger.LogError("Testing log.");
                 return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)

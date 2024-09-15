@@ -4,6 +4,7 @@ using DAL.Context;
 using DAL.Repositories;
 using DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +45,17 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IFlightService, FlightService>();
 builder.Services.AddScoped<ISeatService, SeatService>();
 builder.Services.AddScoped<IReservationService, ReservationService>();
+
+// Configuración de Serilog para registrar en consola y archivo
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Warning()
+    //.MinimumLevel.Debug()
+    .WriteTo.Console() // Registra en consola
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) // Registra en archivos
+    .CreateLogger();
+
+// Reemplaza los proveedores de logging por Serilog
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 
