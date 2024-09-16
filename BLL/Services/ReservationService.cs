@@ -28,5 +28,10 @@ namespace BLL.Services
         {
             await _seatService.ReserveSeatAsync(seatsIds, flightId, reservationId);
         }
+
+        public async Task ReleaseSeatsAsync(int reservationId)
+        {
+            await _seatService.ReleaseSeatsAsync(reservationId);
+        }
     }
 }

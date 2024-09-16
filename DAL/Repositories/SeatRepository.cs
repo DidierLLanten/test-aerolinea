@@ -36,5 +36,15 @@ namespace DAL.Repositories
             await _context.Set<Seat>().AddRangeAsync(seats);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<Seat>> GetByReservationIdAsync(int reservationId)
+        {
+            return await _context.Set<Seat>().Where(s => s.ReservationId == reservationId).ToListAsync();
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

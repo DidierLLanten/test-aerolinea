@@ -28,6 +28,7 @@ namespace WebApiAerolinea.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reservation>>> GetAllReservations()
         {
+            _logger.LogInformation("Reservas obtenidas");
             var reservations = await _reservationService.GetAllAsync();
             return Ok(reservations);
         }
@@ -46,8 +47,8 @@ namespace WebApiAerolinea.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateReservation([FromBody] CreateReservationDto createReservationDto)
         {
-            await using var client = new ServiceBusClient(_serviceBusConnectionString);
-            var sender = client.CreateSender("cola-stack");
+            //await using var client = new ServiceBusClient(_serviceBusConnectionString);
+            //var sender = client.CreateSender("cola-stack");
 
             try
             {
@@ -59,7 +60,7 @@ namespace WebApiAerolinea.Controllers
                 await _reservationService.ReserveSeatAsync(createReservationDto.SeatsId, createdReservation.FlightId, createdReservation.Id);
 
                 //await sender.SendMessageAsync(message);                
-                _logger.LogInformation("Mensaje enviado a la cola.");
+                //_logger.LogInformation("Mensaje enviado a la cola.");
 
 
                 var reservationDto = _mapper.Map<ReservationDto>(createdReservation);
@@ -69,7 +70,7 @@ namespace WebApiAerolinea.Controllers
             catch (InvalidOperationException ex)
             {
 
-                _logger.LogError("Testing log.");
+                _logger.LogError(ex.Message);
                 return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
@@ -95,6 +96,8 @@ namespace WebApiAerolinea.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReservation(int id)
         {
+            _logger.LogInformation("Reserva eliminada");
+            await _reservationService.ReleaseSeatsAsync(id);
             await _reservationService.DeleteAsync(id);
             return NoContent();
         }

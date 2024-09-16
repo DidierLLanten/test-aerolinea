@@ -10,5 +10,7 @@ namespace BLL.Services.Interfaces
         Task<IEnumerable<Seat>> GetByFlightIdAndAvailableAsync(int flightId, bool available);
         Task<IEnumerable<Seat>> CreateSeatsAsync(int flightId, int numberOfSeats);
         Task ReserveSeatAsync(List<int> seatsIds, int flightId, int reservationId);
+        Task<IEnumerable<Seat>> GetByReservationId(int reservationId);
+        Task ReleaseSeatsAsync(int reservationId);
     }
 }

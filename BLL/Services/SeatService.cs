@@ -45,7 +45,7 @@ namespace BLL.Services
                 if (i != 1 && (i % 4) == 1) { fila = 'A'; filaNumber++; }
                 Seat seat = new()
                 {
-                    FlightId = flightId,                 
+                    FlightId = flightId,
                     SeatNumber = $"{filaNumber}{fila}",
                 };
                 fila++;
@@ -85,9 +85,29 @@ namespace BLL.Services
                 }
                 else
                 {
-                    throw new InvalidOperationException($"Seat with ID {seatId} not found."); 
+                    throw new InvalidOperationException($"Seat with ID {seatId} not found.");
                 }
             }
+        }
+
+        public async Task<IEnumerable<Seat>> GetByReservationId(int reservationId)
+        {
+            return await _repository.GetByReservationIdAsync(reservationId);
+        }
+
+        public async Task ReleaseSeatsAsync(int reservationId)
+        {
+            IEnumerable<Seat> seats = await GetByReservationId(reservationId);
+            foreach (Seat seat in seats)
+            {
+                if (!seat.IsAvailable)
+                {
+                    seat.IsAvailable = true;
+                    seat.ReservationId = null;
+                }
+            }
+            await _repository.SaveChangesAsync();
+
         }
     }
 }
