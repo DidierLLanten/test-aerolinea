@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Azure.Messaging.ServiceBus;
 using BLL.Services.Interfaces;
 using DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 using WebApiAerolinea.DTOs;
 
 namespace WebApiAerolinea.Controllers
@@ -13,12 +15,14 @@ namespace WebApiAerolinea.Controllers
         private readonly IReservationService _reservationService;
         private readonly IMapper _mapper;
         private readonly ILogger<ReservationsController> _logger;
+        private readonly string? _serviceBusConnectionString;
 
-        public ReservationsController(IReservationService reservationService, IMapper mapper, ILogger<ReservationsController> logger)
+        public ReservationsController(IReservationService reservationService, IMapper mapper, ILogger<ReservationsController> logger, IConfiguration configuration)
         {
             _reservationService = reservationService;
             _mapper = mapper;
             _logger = logger;
+            _serviceBusConnectionString = configuration.GetSection("AzureServiceBus")["ConnectionString"];
         }
 
         [HttpGet]
@@ -42,13 +46,21 @@ namespace WebApiAerolinea.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateReservation([FromBody] CreateReservationDto createReservationDto)
         {
+            await using var client = new ServiceBusClient(_serviceBusConnectionString);
+            var sender = client.CreateSender("cola-stack");
+
             try
             {
                 var reservation = _mapper.Map<Reservation>(createReservationDto);
                 var createdReservation = await _reservationService.CreateAsync(reservation);
+                //var message = new ServiceBusMessage(JsonSerializer.Serialize( createdReservation));
+                //Console.WriteLine(JsonSerializer.Serialize(createdReservation));
 
-                // Llamada al servicio para reservar asientos
                 await _reservationService.ReserveSeatAsync(createReservationDto.SeatsId, createdReservation.FlightId, createdReservation.Id);
+
+                //await sender.SendMessageAsync(message);                
+                _logger.LogInformation("Mensaje enviado a la cola.");
+
 
                 var reservationDto = _mapper.Map<ReservationDto>(createdReservation);
 
@@ -56,14 +68,13 @@ namespace WebApiAerolinea.Controllers
             }
             catch (InvalidOperationException ex)
             {
-                // Manejo de excepciones específicas con una respuesta adecuada 
+
                 _logger.LogError("Testing log.");
                 return BadRequest(new { message = ex.Message });
             }
             catch (Exception ex)
             {
-                // Manejo de otras excepciones
-                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.InnerException?.Message ?? ex.Message});
+                return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.InnerException?.Message ?? ex.Message });
             }
         }
 

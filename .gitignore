@@ -11,3 +11,6 @@
 *.db
 *.pdb
 *.log
+
+# Configuration files with sensitive data
+appsettings.Development.json

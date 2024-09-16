@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Azure.Messaging;
+using Azure.Messaging.ServiceBus;
 using BLL.Services.Interfaces;
 using DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +31,23 @@ namespace WebApiAerolinea.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Flight>> GetFlightById(int id)
         {
+            //try
+            //{
+            //    await using var client = new
+            //ServiceBusClient("BorradParaPoderSubirAGitHub");
+            //var sender = client.CreateSender("cola-stack");
+            //var message = new ServiceBusMessage("probando la cola");
+            
+            //    await sender.SendMessageAsync(message);
+            //    return Ok("Message sent successfully.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    return StatusCode(500, $"Error sending message: { ex.Message}");
+            //}
+
+
+
             var flight = await _flightService.GetByIdAsync(id);
             if (flight == null)
             {

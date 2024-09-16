@@ -48,7 +48,7 @@ builder.Services.AddScoped<IReservationService, ReservationService>();
 
 // Configuración de Serilog para registrar en consola y archivo
 Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Warning()
+    .MinimumLevel.Information()
     //.MinimumLevel.Debug()
     .WriteTo.Console() // Registra en consola
     .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) // Registra en archivos
