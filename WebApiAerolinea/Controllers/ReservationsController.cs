@@ -28,8 +28,8 @@ namespace WebApiAerolinea.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reservation>>> GetAllReservations()
         {
-            _logger.LogInformation("Reservas obtenidas");
             var reservations = await _reservationService.GetAllAsync();
+            _logger.LogInformation("Reservas obtenidas");
             return Ok(reservations);
         }
 
@@ -39,8 +39,10 @@ namespace WebApiAerolinea.Controllers
             var reservation = await _reservationService.GetByIdAsync(id);
             if (reservation == null)
             {
+                _logger.LogWarning($"Reserva {id} no encontrada");
                 return NotFound();
-            }
+            }            
+            _logger.LogInformation($"Reserva {id} encontrada");
             return Ok(reservation);
         }
 
@@ -58,6 +60,7 @@ namespace WebApiAerolinea.Controllers
                 //Console.WriteLine(JsonSerializer.Serialize(createdReservation));
 
                 await _reservationService.ReserveSeatAsync(createReservationDto.SeatsId, createdReservation.FlightId, createdReservation.Id);
+                _logger.LogInformation("Reserva creada");
 
                 //await sender.SendMessageAsync(message);                
                 //_logger.LogInformation("Mensaje enviado a la cola.");
@@ -75,6 +78,7 @@ namespace WebApiAerolinea.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex.InnerException?.Message ?? ex.Message);
                 return StatusCode(500, new { message = "An unexpected error occurred.", details = ex.InnerException?.Message ?? ex.Message });
             }
         }
@@ -85,20 +89,23 @@ namespace WebApiAerolinea.Controllers
             var reservation = await _reservationService.GetByIdAsync(id);
             if (reservation == null)
             {
+                _logger.LogWarning($"Reserva {id} no encontrada");
                 return NotFound();
             }
 
             var reservationActualizado = _mapper.Map(updateReservationDto, reservation);
             await _reservationService.UpdateAsync(reservationActualizado);
+            _logger.LogInformation($"Reserva {id} actualizada exitosamente");
             return Ok(new { message = $"Reservation {id} updated successfully" });
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReservation(int id)
-        {
-            _logger.LogInformation("Reserva eliminada");
+        {            
             await _reservationService.ReleaseSeatsAsync(id);
             await _reservationService.DeleteAsync(id);
+            _logger.LogInformation("Asientos liberados");
+            _logger.LogInformation("Reserva eliminada");
             return NoContent();
         }
 
@@ -106,6 +113,7 @@ namespace WebApiAerolinea.Controllers
         public async Task<ActionResult<IEnumerable<Reservation>>> GetByUserId(int userId)
         {
             var reservations = await _reservationService.GetByUserIdAsync(userId);
+            _logger.LogInformation($"Reserva con user id {userId} encontrada exitosamente");
             return Ok(reservations);
         }
 
@@ -113,6 +121,7 @@ namespace WebApiAerolinea.Controllers
         public async Task<ActionResult<IEnumerable<Reservation>>> GetByFlightId(int flightId)
         {
             var reservations = await _reservationService.GetByFlightIdAsync(flightId);
+            _logger.LogInformation($"Reserva con flight id {flightId} encontrada exitosamente");
             return Ok(reservations);
         }
 

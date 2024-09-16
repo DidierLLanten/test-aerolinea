@@ -14,17 +14,20 @@ namespace WebApiAerolinea.Controllers
     {
         private readonly IFlightService _flightService;
         private readonly IMapper _mapper;
+        private readonly ILogger<FlightsController> _logger;
 
-        public FlightsController(IFlightService flightService, IMapper mapper)
+        public FlightsController(IFlightService flightService, IMapper mapper, ILogger<FlightsController> logger)
         {
             _flightService = flightService;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Flight>>> GetAllFlights()
         {
             var flights = await _flightService.GetAllAsync();
+            _logger.LogInformation("Vuelos obtenidos");
             return Ok(flights);
         }
 
@@ -51,8 +54,10 @@ namespace WebApiAerolinea.Controllers
             var flight = await _flightService.GetByIdAsync(id);
             if (flight == null)
             {
+                _logger.LogWarning($"Vuelo con id {id} no encontrado");
                 return NotFound();
             }
+            _logger.LogInformation($"Vuelo con id {id} encontrado exitosamente");
             return Ok(flight);
         }
 
@@ -62,6 +67,8 @@ namespace WebApiAerolinea.Controllers
             var flight = _mapper.Map<Flight>(createFlightDto);
             flight.AvailableSeats = flight.TotalSeats;
             var createdFlight = await _flightService.CreateFlightWithSeatsAsync(flight);
+            _logger.LogInformation("Vuelo creado exitosamente");
+            _logger.LogInformation("Asientos creados exitosamente");
             return CreatedAtAction(nameof(GetFlightById), new { id = createdFlight.Id }, new { message = "Flight created successfully", flight = createdFlight });
         }
 
@@ -71,11 +78,13 @@ namespace WebApiAerolinea.Controllers
             var flight = await _flightService.GetByIdAsync(id);
             if (flight == null)
             {
+                _logger.LogWarning($"Vuelo con id {id} no encontrado");
                 return NotFound();
             }
 
             var flightActualizado = _mapper.Map(updateFlightDto, flight);
             await _flightService.UpdateAsync(flightActualizado);
+            _logger.LogInformation($"Vuelo con id {id} actulizado exitosamente");
             return Ok(new { message = $"Flight {id} updated successfully" });
         }
 
@@ -83,6 +92,8 @@ namespace WebApiAerolinea.Controllers
         public async Task<IActionResult> DeleteFlight(int id)
         {
             await _flightService.DeleteAsync(id);
+            _logger.LogInformation($"Vuelo con id {id} eliminado exitosamente");
+            _logger.LogInformation($"Asientos el vuelvo con id {id} eliminados exitosamente");
             return NoContent();
         }
 
@@ -92,14 +103,17 @@ namespace WebApiAerolinea.Controllers
             var flight = await _flightService.GetByFlightNumberAsync(flightNumber);
             if (flight == null)
             {
+                _logger.LogWarning($"Vuelo con flight number {flightNumber} no encontrado");
                 return NotFound();
             }
+            _logger.LogInformation($"Vuelo con flight number {flightNumber} encontrado exitosamente");
             return Ok(flight);
         }
 
         [HttpGet("airline/{airLine}")]
         public async Task<IEnumerable<Flight>> GetByFlightAirline(string airLine)
         {
+            _logger.LogInformation($"Vuelos con airline {airLine} encontrados exitosamente");
             return await _flightService.GetByFlightAirlineAsync(airLine);
         }
 

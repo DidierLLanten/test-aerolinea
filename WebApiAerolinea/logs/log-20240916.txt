@@ -2784,3 +2784,155 @@ WHERE [s].[Id] = @__p_0
 2024-09-16 04:38:22.958 -05:00 [INF] Executed action WebApiAerolinea.Controllers.ReservationsController.CreateReservation (WebApiAerolinea) in 656.1378ms
 2024-09-16 04:38:22.960 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.ReservationsController.CreateReservation (WebApiAerolinea)'
 2024-09-16 04:38:22.964 -05:00 [INF] Request finished HTTP/1.1 POST https://localhost:7248/api/v1/Reservations application/json 106 - 400 - application/json;+charset=utf-8 681.8208ms
+2024-09-16 05:05:28.169 -05:00 [INF] Now listening on: https://localhost:7248
+2024-09-16 05:05:28.235 -05:00 [INF] Now listening on: http://localhost:5024
+2024-09-16 05:05:28.365 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-16 05:05:28.379 -05:00 [INF] Hosting environment: Development
+2024-09-16 05:05:28.391 -05:00 [INF] Content root path: C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\WebApiAerolinea
+2024-09-16 05:05:29.129 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - -
+2024-09-16 05:05:29.510 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - - - 200 - text/html;charset=utf-8 384.9547ms
+2024-09-16 05:05:29.520 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - -
+2024-09-16 05:05:29.520 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - -
+2024-09-16 05:05:29.537 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 16.6453ms
+2024-09-16 05:05:29.647 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 127.0071ms
+2024-09-16 05:05:29.937 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - -
+2024-09-16 05:05:30.178 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 241.6128ms
+2024-09-16 05:06:06.401 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/v1/Users - -
+2024-09-16 05:06:06.414 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.UsersController.GetAllUsers (WebApiAerolinea)'
+2024-09-16 05:06:06.440 -05:00 [INF] Route matched with {action = "GetAllUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DAL.Entities.User]]] GetAllUsers() on controller WebApiAerolinea.Controllers.UsersController (WebApiAerolinea).
+2024-09-16 05:06:08.488 -05:00 [INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[FirstName], [u].[LastName], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+2024-09-16 05:06:08.604 -05:00 [INF] Usuarios obtenidos
+2024-09-16 05:06:08.615 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DAL.Entities.User, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 05:06:08.631 -05:00 [INF] Executed action WebApiAerolinea.Controllers.UsersController.GetAllUsers (WebApiAerolinea) in 2183.1546ms
+2024-09-16 05:06:08.637 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.UsersController.GetAllUsers (WebApiAerolinea)'
+2024-09-16 05:06:08.651 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/v1/Users - - - 200 - application/json;+charset=utf-8 2249.3836ms
+2024-09-16 05:06:23.891 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/Users/by-email?email=velez - -
+2024-09-16 05:06:23.894 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/Users/by-email?email=velez - - - 404 0 - 2.7706ms
+2024-09-16 05:07:18.740 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/Users/by-email?email=velez - -
+2024-09-16 05:07:18.743 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/Users/by-email?email=velez - - - 404 0 - 3.4253ms
+2024-09-16 05:07:53.288 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/Users/by-email?email=velez - -
+2024-09-16 05:07:53.290 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/Users/by-email?email=velez - - - 404 0 - 2.0294ms
+2024-09-16 05:08:13.734 -05:00 [INF] Now listening on: https://localhost:7248
+2024-09-16 05:08:13.775 -05:00 [INF] Now listening on: http://localhost:5024
+2024-09-16 05:08:13.866 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-16 05:08:13.868 -05:00 [INF] Hosting environment: Development
+2024-09-16 05:08:13.870 -05:00 [INF] Content root path: C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\WebApiAerolinea
+2024-09-16 05:08:14.973 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - -
+2024-09-16 05:08:15.355 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - -
+2024-09-16 05:08:15.368 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - - - 200 - text/html;charset=utf-8 401.4942ms
+2024-09-16 05:08:15.390 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - -
+2024-09-16 05:08:15.404 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 13.9264ms
+2024-09-16 05:08:15.440 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 85.1021ms
+2024-09-16 05:08:15.724 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - -
+2024-09-16 05:08:15.951 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 232.5942ms
+2024-09-16 05:08:20.237 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/Users/by-email?email=velez - -
+2024-09-16 05:08:20.243 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/Users/by-email?email=velez - - - 404 0 - 6.1825ms
+2024-09-16 05:08:46.814 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/api/v1/Users/by-email?email=velez - -
+2024-09-16 05:08:46.838 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea)'
+2024-09-16 05:08:46.870 -05:00 [INF] Route matched with {action = "GetUserByEmailFragment", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DAL.Entities.User]]] GetUserByEmailFragment(System.String) on controller WebApiAerolinea.Controllers.UsersController (WebApiAerolinea).
+2024-09-16 05:08:59.104 -05:00 [INF] Executed DbCommand (83ms) [Parameters=[@__emailFragment_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[FirstName], [u].[LastName], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE (@__emailFragment_0 LIKE N'') OR CHARINDEX(@__emailFragment_0, [u].[Email]) > 0
+2024-09-16 05:09:03.747 -05:00 [INF] Usuario con email velez encontrado exitosamente
+2024-09-16 05:09:09.463 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DAL.Entities.User, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 05:09:12.954 -05:00 [INF] Executed action WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea) in 26074.6352ms
+2024-09-16 05:09:12.959 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea)'
+2024-09-16 05:09:12.973 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/api/v1/Users/by-email?email=velez - - - 200 - application/json;+charset=utf-8 26158.5553ms
+2024-09-16 05:10:03.732 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/v1/Users/by-email?email=velez - -
+2024-09-16 05:10:03.735 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea)'
+2024-09-16 05:10:03.738 -05:00 [INF] Route matched with {action = "GetUserByEmailFragment", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DAL.Entities.User]]] GetUserByEmailFragment(System.String) on controller WebApiAerolinea.Controllers.UsersController (WebApiAerolinea).
+2024-09-16 05:10:05.467 -05:00 [INF] Executed DbCommand (9ms) [Parameters=[@__emailFragment_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[FirstName], [u].[LastName], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE (@__emailFragment_0 LIKE N'') OR CHARINDEX(@__emailFragment_0, [u].[Email]) > 0
+2024-09-16 05:10:05.473 -05:00 [INF] Usuario con email velez encontrado exitosamente
+2024-09-16 05:10:05.481 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DAL.Entities.User, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 05:10:05.484 -05:00 [INF] Executed action WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea) in 1743.2361ms
+2024-09-16 05:10:05.486 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea)'
+2024-09-16 05:10:05.489 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/v1/Users/by-email?email=velez - - - 200 - application/json;+charset=utf-8 1756.8995ms
+2024-09-16 05:10:36.323 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/v1/Users/by-email?email=velezs - -
+2024-09-16 05:10:36.325 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea)'
+2024-09-16 05:10:36.328 -05:00 [INF] Route matched with {action = "GetUserByEmailFragment", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DAL.Entities.User]]] GetUserByEmailFragment(System.String) on controller WebApiAerolinea.Controllers.UsersController (WebApiAerolinea).
+2024-09-16 05:10:41.354 -05:00 [INF] Executed DbCommand (34ms) [Parameters=[@__emailFragment_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[FirstName], [u].[LastName], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE (@__emailFragment_0 LIKE N'') OR CHARINDEX(@__emailFragment_0, [u].[Email]) > 0
+2024-09-16 05:10:44.598 -05:00 [INF] Usuario con email velezs encontrado exitosamente
+2024-09-16 05:10:47.125 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DAL.Entities.User, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 05:10:47.129 -05:00 [INF] Executed action WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea) in 10797.7902ms
+2024-09-16 05:10:47.137 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea)'
+2024-09-16 05:10:47.145 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/v1/Users/by-email?email=velezs - - - 200 - application/json;+charset=utf-8 10822.3947ms
+2024-09-16 05:11:39.925 -05:00 [INF] Now listening on: https://localhost:7248
+2024-09-16 05:11:40.014 -05:00 [INF] Now listening on: http://localhost:5024
+2024-09-16 05:11:40.194 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-16 05:11:40.296 -05:00 [INF] Hosting environment: Development
+2024-09-16 05:11:40.346 -05:00 [INF] Content root path: C:\Users\Didie\Desktop\.NetTraining\WebApiAerolinea\WebApiAerolinea
+2024-09-16 05:11:40.811 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/index.html - -
+2024-09-16 05:11:41.225 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/index.html - - - 200 - text/html;charset=utf-8 418.0627ms
+2024-09-16 05:11:41.236 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - -
+2024-09-16 05:11:41.236 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - -
+2024-09-16 05:11:41.316 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 79.5906ms
+2024-09-16 05:11:41.503 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 265.8693ms
+2024-09-16 05:11:42.276 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/v1/Users/by-email?email=velezs - -
+2024-09-16 05:11:42.292 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea)'
+2024-09-16 05:11:42.334 -05:00 [INF] Route matched with {action = "GetUserByEmailFragment", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DAL.Entities.User]]] GetUserByEmailFragment(System.String) on controller WebApiAerolinea.Controllers.UsersController (WebApiAerolinea).
+2024-09-16 05:11:42.913 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - -
+2024-09-16 05:11:45.380 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7248/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 2467.3909ms
+2024-09-16 05:11:47.579 -05:00 [INF] Executed DbCommand (89ms) [Parameters=[@__emailFragment_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Email], [u].[FirstName], [u].[LastName], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE (@__emailFragment_0 LIKE N'') OR CHARINDEX(@__emailFragment_0, [u].[Email]) > 0
+2024-09-16 05:11:53.331 -05:00 [WRN] Usuario con email velezs no encontrado
+2024-09-16 05:11:56.734 -05:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-09-16 05:11:56.756 -05:00 [INF] Executed action WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea) in 14413.3869ms
+2024-09-16 05:11:56.759 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.UsersController.GetUserByEmailFragment (WebApiAerolinea)'
+2024-09-16 05:11:56.778 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/v1/Users/by-email?email=velezs - - - 404 - application/problem+json;+charset=utf-8 14504.5924ms
+2024-09-16 05:12:43.679 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/v1/Flights - -
+2024-09-16 05:12:43.684 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.FlightsController.GetAllFlights (WebApiAerolinea)'
+2024-09-16 05:12:43.693 -05:00 [INF] Route matched with {action = "GetAllFlights", controller = "Flights"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DAL.Entities.Flight]]] GetAllFlights() on controller WebApiAerolinea.Controllers.FlightsController (WebApiAerolinea).
+2024-09-16 05:12:43.805 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[Airline], [f].[ArrivalTime], [f].[AvailableSeats], [f].[DepartureTime], [f].[Destination], [f].[FlightNumber], [f].[Origin], [f].[Price], [f].[TotalSeats]
+FROM [Flights] AS [f]
+2024-09-16 05:12:43.906 -05:00 [INF] Vuelos obtenidos
+2024-09-16 05:12:43.908 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DAL.Entities.Flight, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 05:12:43.928 -05:00 [INF] Executed action WebApiAerolinea.Controllers.FlightsController.GetAllFlights (WebApiAerolinea) in 228.9942ms
+2024-09-16 05:12:43.930 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.FlightsController.GetAllFlights (WebApiAerolinea)'
+2024-09-16 05:12:43.933 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/v1/Flights - - - 200 - application/json;+charset=utf-8 254.4849ms
+2024-09-16 05:12:49.869 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/v1/Flights/23 - -
+2024-09-16 05:12:49.873 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.FlightsController.GetFlightById (WebApiAerolinea)'
+2024-09-16 05:12:49.878 -05:00 [INF] Route matched with {action = "GetFlightById", controller = "Flights"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[DAL.Entities.Flight]] GetFlightById(Int32) on controller WebApiAerolinea.Controllers.FlightsController (WebApiAerolinea).
+2024-09-16 05:12:49.937 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [f].[Id], [f].[Airline], [f].[ArrivalTime], [f].[AvailableSeats], [f].[DepartureTime], [f].[Destination], [f].[FlightNumber], [f].[Origin], [f].[Price], [f].[TotalSeats]
+FROM [Flights] AS [f]
+WHERE [f].[Id] = @__p_0
+2024-09-16 05:12:49.943 -05:00 [INF] Vuelo con 23 encontrado exitosamente
+2024-09-16 05:12:49.944 -05:00 [INF] Executing OkObjectResult, writing value of type 'DAL.Entities.Flight'.
+2024-09-16 05:12:49.946 -05:00 [INF] Executed action WebApiAerolinea.Controllers.FlightsController.GetFlightById (WebApiAerolinea) in 65.3969ms
+2024-09-16 05:12:49.949 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.FlightsController.GetFlightById (WebApiAerolinea)'
+2024-09-16 05:12:49.951 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/v1/Flights/23 - - - 200 - application/json;+charset=utf-8 81.8255ms
+2024-09-16 05:13:50.487 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/v1/Flights/airline/Avianca - -
+2024-09-16 05:13:50.490 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.FlightsController.GetByFlightAirline (WebApiAerolinea)'
+2024-09-16 05:13:50.497 -05:00 [INF] Route matched with {action = "GetByFlightAirline", controller = "Flights"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.IEnumerable`1[DAL.Entities.Flight]] GetByFlightAirline(System.String) on controller WebApiAerolinea.Controllers.FlightsController (WebApiAerolinea).
+2024-09-16 05:13:50.510 -05:00 [INF] Vuelos con ailine Avianca encontrados exitosamente
+2024-09-16 05:13:50.525 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__airLine_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [f].[Id], [f].[Airline], [f].[ArrivalTime], [f].[AvailableSeats], [f].[DepartureTime], [f].[Destination], [f].[FlightNumber], [f].[Origin], [f].[Price], [f].[TotalSeats]
+FROM [Flights] AS [f]
+WHERE [f].[Airline] = @__airLine_0
+2024-09-16 05:13:50.532 -05:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[DAL.Entities.Flight, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 05:13:50.537 -05:00 [INF] Executed action WebApiAerolinea.Controllers.FlightsController.GetByFlightAirline (WebApiAerolinea) in 33.8325ms
+2024-09-16 05:13:50.540 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.FlightsController.GetByFlightAirline (WebApiAerolinea)'
+2024-09-16 05:13:50.546 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/v1/Flights/airline/Avianca - - - 200 - application/json;+charset=utf-8 58.5400ms
+2024-09-16 05:14:32.895 -05:00 [INF] Request starting HTTP/1.1 GET https://localhost:7248/api/v1/Reservations - -
+2024-09-16 05:14:32.897 -05:00 [INF] Executing endpoint 'WebApiAerolinea.Controllers.ReservationsController.GetAllReservations (WebApiAerolinea)'
+2024-09-16 05:14:32.906 -05:00 [INF] Route matched with {action = "GetAllReservations", controller = "Reservations"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[DAL.Entities.Reservation]]] GetAllReservations() on controller WebApiAerolinea.Controllers.ReservationsController (WebApiAerolinea).
+2024-09-16 05:14:32.931 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[FlightId], [r].[NumberOfPassengers], [r].[ReservationDate], [r].[UserId]
+FROM [Reservations] AS [r]
+2024-09-16 05:14:32.961 -05:00 [INF] Reservas obtenidas
+2024-09-16 05:14:32.963 -05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[DAL.Entities.Reservation, DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-16 05:14:32.972 -05:00 [INF] Executed action WebApiAerolinea.Controllers.ReservationsController.GetAllReservations (WebApiAerolinea) in 59.6407ms
+2024-09-16 05:14:32.975 -05:00 [INF] Executed endpoint 'WebApiAerolinea.Controllers.ReservationsController.GetAllReservations (WebApiAerolinea)'
+2024-09-16 05:14:32.978 -05:00 [INF] Request finished HTTP/1.1 GET https://localhost:7248/api/v1/Reservations - - - 200 - application/json;+charset=utf-8 81.9769ms
